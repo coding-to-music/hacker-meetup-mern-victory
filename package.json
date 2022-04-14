@@ -1,5 +1,6 @@
 {
-  "name": "checkin",
+  "name": "hacker-meetup-mern-victory",
+  "homepage": "https://hacker-meetup-mern-victory.herokuapp.com",
   "version": "2.0.0",
   "description": "TESC's own check-in system for all TESC orgs and events",
   "main": "index.js",
@@ -9,22 +10,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UCSDTESC/Check-in.git"
+    "url": "git+https://github.com/coding-to-music/hacker-meetup-mern-victory.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/UCSDTESC/Check-in/issues"
+    "url": "https://github.com/coding-to-music/hacker-meetup-mern-victory/issues"
   },
+  "cacheDirectories": [
+    "node_modules"
+  ],
   "scripts": {
     "start": "./node_modules/.bin/gulp",
     "migrate": "./node_modules/.bin/mm migrate",
     "rollback": "./node_modules/.bin/mm down",
+    "deploy": "git add . && git commit -m Heroku && git push && git push heroku && heroku logs --tail --remote heroku",
     "heroku-postbuild": "npm run migrate && ./node_modules/.bin/gulp prod --production",
     "test-server": "tsc -P ./src/server/tsconfig.json --outDir /tmp",
     "test-server:unit": "npx jest --runInBand --detectOpenHandles --colors --notify",
     "gen-server-docs": "npx typedoc --out docs/server src/server/ --tsconfig src/server/tsconfig.json --mode file"
   },
-  "homepage": "https://github.com/UCSDTESC/Check-in#readme",
+  "homepage": "https://github.com/coding-to-music/hacker-meetup-mern-victory#readme",
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
